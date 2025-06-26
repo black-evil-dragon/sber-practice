@@ -79,6 +79,45 @@ class Circle {
 }
 
 
+class Matrix {
+    /*
+    Создайте класс Matrix. Класс должен иметь следующие переменные:
+    1 двумерный массив вещественных чисел;
+    2 количество строк и столбцов в матрице.
+
+    Класс должен иметь следующие методы:
+    1 Setter значения элемента в массив - setValue(int i, int j, int value)
+    2 сложение с другой матрицей;
+    3 умножение на число;
+    4 вывод на печать;
+    5 умножение матриц.
+
+    Создать класс с методом main, в котором продемонстрировать работу класса.
+     */
+
+    private double[][] matrix;
+    private int row_size;
+    private int col_size;
+
+    public Matrix(int row_size, int col_size) throws Exception {
+        if (row_size > 0 && col_size > 0) {
+            this.row_size = row_size;
+            this.col_size = col_size;
+            this.matrix = new double[row_size][col_size];
+        } else {
+            throw new Exception("Неверный размер матрицы");
+        }
+    }
+
+    public void setValue(int row_index, int column_index, double value) {
+        this.matrix[row_index][column_index] = value;
+    }
+
+
+
+}
+
+
 
 public class Main {
     public static void main(String[] args) {
