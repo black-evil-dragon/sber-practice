@@ -28,5 +28,10 @@ public class Main {
         };
 
         test.print();
+        if ("1".equals(1)) {
+            System.out.println("Hello");
+        }
+
+//        (1).equals(1);
     }
 }
