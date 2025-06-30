@@ -50,28 +50,23 @@ public class Shell {
     private Map<String, Command> commands = new HashMap<>();
 
     public Shell() {
-        init();
-    }
+        BaseCommand[] availableCommands = {
+            new ExitCommand(),
+            new HelpCommand(),
+            new DateCommand(),
+            new TimeCommand(),
+            new PwdCommand()
+        };
 
 
-    public void init() {
-        ExitCommand exitCommand = new ExitCommand();
-        commands.put(exitCommand.getCommandWord(), exitCommand);
+        for (BaseCommand command : availableCommands) {
+            commands.put(command.getCommandWord(), command);
+        }
 
-        HelpCommand helpCommand = new HelpCommand();
-        commands.put(helpCommand.getCommandWord(), helpCommand);
-
-        DateCommand dateCommand = new DateCommand();
-        commands.put(dateCommand.getCommandWord(), dateCommand);
-
-        TimeCommand timeCommand = new TimeCommand();
-        commands.put(timeCommand.getCommandWord(), timeCommand);
-
-        PwdCommand pwdCommand = new PwdCommand();
-        commands.put(pwdCommand.getCommandWord(), pwdCommand);
-
-
-        helpCommand.setCommands(commands);
+        // Документируем
+        if (commands.get("help") instanceof HelpCommand) {
+            ((HelpCommand) commands.get("help")).setCommands(commands);
+        }
     }
 
     public void run() {
