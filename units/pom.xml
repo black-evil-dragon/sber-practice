@@ -13,6 +13,7 @@
         <module>online_practice</module>
         <module>unit1</module>
         <module>unit2</module>
+        <module>unit3</module>
     </modules>
 
     <properties>
