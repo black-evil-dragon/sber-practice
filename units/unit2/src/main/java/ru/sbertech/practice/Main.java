@@ -79,6 +79,7 @@ class Circle {
 }
 
 
+// Task 3 - Matrix
 class Matrix {
     /*
     Создайте класс Matrix. Класс должен иметь следующие переменные:
