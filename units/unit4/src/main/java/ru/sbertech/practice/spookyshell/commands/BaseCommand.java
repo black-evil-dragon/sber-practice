@@ -17,7 +17,7 @@ public abstract class BaseCommand implements Command {
     }
 
     @Override
-    public String getCommandHelp() {
+    public String getCommandDescription() {
         return COMMAND_DESCRIPTION;
     }
 
