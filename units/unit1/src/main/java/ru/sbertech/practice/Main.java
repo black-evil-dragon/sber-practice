@@ -7,7 +7,7 @@ public class Main {
         System.out.println("Hello World!");
     }
 
-    
+
     static void divide(int a, int b) {
         if (b == 0) {
             System.out.println("Деление на ноль");
