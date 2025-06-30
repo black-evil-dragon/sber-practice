@@ -3,11 +3,11 @@ package ru.sbertech.practice.paint.core;
 public class Point {
 
     // В теории мы можем менять позицию фигуры, но пока только рисуем
-    private final double positionX;
-    private final double positionY;
+    private final int positionX;
+    private final int positionY;
 
 
-    public Point(double positionX, double positionY) {
+    public Point(int positionX, int positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
     }
@@ -20,5 +20,11 @@ public class Point {
 
     public double getPositionY() {
         return this.positionY;
+    }
+
+
+    @Override
+    public String toString() {
+        return "(" + getPositionX() + ", " + getPositionY() + ")";
     }
 }

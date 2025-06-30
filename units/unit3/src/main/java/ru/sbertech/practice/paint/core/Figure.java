@@ -2,23 +2,33 @@ package ru.sbertech.practice.paint.core;
 
 public abstract class Figure {
 
-    protected Color figureColor;
-    protected Point figurePosition;
+    protected Color color;
+    protected Point position;
+
+    protected double area;
+    protected double perimeter;
 
     public Figure(Point figurePosition, Color figureColor) {
-        this.figureColor = figureColor;
-        this.figurePosition = figurePosition;
+        this.color = figureColor;
+        this.position = figurePosition;
     }
+
 
     public abstract double area();
     public abstract double perimeter();
 
 
+
+
     public void setColor(Color figureColor) {
-        this.figureColor = figureColor;
+        this.color = figureColor;
     }
 
     public Color getColor() {
-        return this.figureColor;
+        return this.color;
+    }
+
+    public Point getCenterPositon() {
+        return this.position;
     }
 }

@@ -7,12 +7,19 @@ import ru.sbertech.practice.paint.core.Point;
 
 public class Circle extends Figure implements Drawable {
 
-    private double radius;
+    private int radius;
 
-    public Circle(Point figurePosition, double radius) {
-        super(figurePosition, Color.BLACK);
+
+    public Circle(int radius, Point figurePosition, Color color) {
+        super(figurePosition, color);
 
         this.radius = radius;
+        this.area = area();
+        this.perimeter = perimeter();
+    }
+
+    public Circle(int radius, Point figurePosition) {
+        this(radius, figurePosition, Color.BLACK);
     }
 
 
