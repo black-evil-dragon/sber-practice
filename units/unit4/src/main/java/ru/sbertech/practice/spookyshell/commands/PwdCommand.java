@@ -2,12 +2,20 @@ package ru.sbertech.practice.spookyshell.commands;
 
 import java.io.File;
 
-public class PwdCommand extends BaseCommand {
-    private static final String COMMAND_WORD = "pwd";
-    private static final String COMMAND_DESCRIPTION = "выводит текущий рабочий каталог";
+public class PwdCommand implements Command {
+    private static final String word = "pwd";
+    private static final String description = "выводит текущий рабочий каталог";
 
-    public PwdCommand() {
-        super(COMMAND_WORD, COMMAND_DESCRIPTION);
+    public PwdCommand() {}
+
+    @Override
+    public String getCommandWord() {
+        return word;
+    }
+
+    @Override
+    public String getCommandDescription() {
+        return description;
     }
 
     @Override

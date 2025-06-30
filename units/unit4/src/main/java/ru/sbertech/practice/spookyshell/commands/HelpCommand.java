@@ -3,17 +3,15 @@ package ru.sbertech.practice.spookyshell.commands;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HelpCommand extends BaseCommand {
+public class HelpCommand implements Command {
 
-    private static final String COMMAND_WORD = "help";
-    private static final String COMMAND_DESCRIPTION = "выводит список доступных команд";
+    private static final String word = "help";
+    private static final String description = "выводит список доступных команд";
 
 
     private Map<String, Command> commands = new HashMap<>();
 
-    public HelpCommand() {
-        super(COMMAND_WORD, COMMAND_DESCRIPTION);
-    }
+    public HelpCommand() {}
 
 
     public void setCommands(Map<String, Command> commands) {
@@ -22,6 +20,16 @@ public class HelpCommand extends BaseCommand {
         }
     }
 
+
+    @Override
+    public String getCommandWord() {
+        return word;
+    }
+
+    @Override
+    public String getCommandDescription() {
+        return description;
+    }
 
     @Override
     public void execute() {

@@ -3,12 +3,20 @@ package ru.sbertech.practice.spookyshell.commands;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class TimeCommand extends BaseCommand {
-    private static final String COMMAND_WORD = "time";
-    private static final String COMMAND_DESCRIPTION = "выводит текущее время";
+public class TimeCommand implements Command {
+    private static final String word = "time";
+    private static final String description = "выводит текущее время";
 
-    public TimeCommand() {
-        super(COMMAND_WORD, COMMAND_DESCRIPTION);
+    public TimeCommand() {}
+
+    @Override
+    public String getCommandWord() {
+        return word;
+    }
+
+    @Override
+    public String getCommandDescription() {
+        return description;
     }
 
     @Override

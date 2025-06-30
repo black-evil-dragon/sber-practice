@@ -11,7 +11,7 @@ public class Shell {
     private final Map<String, Command> commands = new HashMap<>();
 
     public Shell() {
-        BaseCommand[] availableCommands = {
+        Command[] availableCommands = {
             new ExitCommand(),
             new HelpCommand(),
             new DateCommand(),
@@ -20,7 +20,7 @@ public class Shell {
         };
 
 
-        for (BaseCommand command : availableCommands) {
+        for (Command command : availableCommands) {
             commands.put(command.getCommandWord(), command);
         }
 
