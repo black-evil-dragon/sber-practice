@@ -1,11 +1,12 @@
 package ru.sbertech.practice.spookyshell;
 
-import ru.sbertech.practice.spookyshell.commands.*;
+
+import ru.sbertech.practice.spookyshell.commands.system.ExitCommand;
+import ru.sbertech.practice.spookyshell.commands.system.HelpCommand;
 import ru.sbertech.practice.spookyshell.core.Command;
 import ru.sbertech.practice.spookyshell.core.CommandInfo;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,8 +14,13 @@ import java.util.*;
 
 
 public class Shell {
+    /// Карта для хранения всех команд
     private final Map<String, Command> commands = new HashMap<>();
 
+
+    /// 1. Сканирует пакет с командами
+    /// 2. Создает экземпляр каждого класса, помеченного аннотацией @CommandInfo
+    /// 3. Сохраняет экземпляры команд в Map
     public Shell() {
         try {
             String packageName = "ru.sbertech.practice.spookyshell.commands";
@@ -41,15 +47,22 @@ public class Shell {
     }
 
 
+    /// Рекурсивное сканирование директории на наличие классов команд.
+    ///
+    /// @param directory   Директория для сканирования
+    /// @param packageName Имя пакета для поиска классов
+    /// @throws Exception Может выбросить различные исключения при работе с классами
     private void scanDirectory(File directory, String packageName) throws Exception {
         File[] files = directory.listFiles();
         if (files == null) return;
 
         for (File file : files) {
             if (file.isDirectory()) {
+                // again
                 scanDirectory(file, packageName + "." + file.getName());
+
             } else if (file.getName().endsWith(".class")) {
-                String className = packageName + '.' + file.getName().substring(0, file.getName().length() - 6);
+                String className = packageName + '.' + file.getName().replace(".class", "");
                 Class<?> cls = Class.forName(className);
 
                 if (cls.isAnnotationPresent(CommandInfo.class)) {
@@ -62,6 +75,7 @@ public class Shell {
         }
     }
 
+    /// Устанавливает для команды Help ссылку на все остальные команды
     private void setHelpCommands() {
         for (Command command : commands.values()) {
             if (command instanceof HelpCommand) {

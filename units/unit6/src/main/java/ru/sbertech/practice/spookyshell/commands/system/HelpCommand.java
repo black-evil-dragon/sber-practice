@@ -1,9 +1,8 @@
-package ru.sbertech.practice.spookyshell.commands;
+package ru.sbertech.practice.spookyshell.commands.system;
 
 import ru.sbertech.practice.spookyshell.core.Command;
 import ru.sbertech.practice.spookyshell.core.CommandInfo;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
