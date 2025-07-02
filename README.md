@@ -6,4 +6,7 @@
 - [Модуль 1](units/unit1) - Функции, переменные
 - [Модуль 2](units/unit2) - Классы, ООП
 - [Модуль 3](units/unit3) - Классы, ООП. Paint
-- [Модуль 4](units/unit4) - Классы, ООП. Терминал Paint
+- [Модуль 4](units/unit4) - Классы, ООП. Терминал Shell
+- [Модуль 5](units/unit5) - List, Generics
+- [Модуль 6](units/unit6) - Терминал Shell 2. Рефлексия
+- [Модуль 7](units/unit7) - 
