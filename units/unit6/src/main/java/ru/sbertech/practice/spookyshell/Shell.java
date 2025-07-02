@@ -4,6 +4,7 @@ package ru.sbertech.practice.spookyshell;
 import ru.sbertech.practice.spookyshell.commands.system.ExitCommand;
 import ru.sbertech.practice.spookyshell.commands.system.HelpCommand;
 import ru.sbertech.practice.spookyshell.core.Command;
+import ru.sbertech.practice.spookyshell.core.CommandExecutionException;
 import ru.sbertech.practice.spookyshell.core.CommandInfo;
 
 import java.io.File;
@@ -111,7 +112,16 @@ public class Shell {
                 continue;
             }
 
-            command.execute(args);
+            try {
+                command.execute(args);
+            } catch (CommandExecutionException e) {
+                System.err.println("Ошибка выполнения команды '" + e.getCommandName() + "':");
+                System.err.println("Причина: " + e.getMessage());
+                if (e.getCause() != null) {
+                    System.err.println("Детали: " + e.getCause().getMessage());
+                }
+                System.err.println("Аргументы: " + String.join(" ", e.getArgs()));
+            }
 
             if (command instanceof ExitCommand) {
                 break;
