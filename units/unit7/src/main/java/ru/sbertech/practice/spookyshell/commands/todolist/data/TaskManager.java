@@ -7,7 +7,7 @@ import java.util.List;
 public interface TaskManager {
     void        add(Task task);
     List<Task>  getAll();
-    Task        getById(int uid);
+    Task        getById(String uid);
     void        update(Task task);
-    void        delete(int uid);
+    void        delete(String uid);
 }
