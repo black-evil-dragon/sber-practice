@@ -10,4 +10,4 @@
 - [Модуль 5](units/unit5) - List, Generics
 - [Модуль 6.1](units/unit6/unit6.1) - Терминал Shell 2. Рефлексия
 - [Модуль 6.2](units/unit6/unit6.2) - Json-сериализатор. Рефлексия
-- [Модуль 7](units/unit7) - 
+- [Модуль 7](units/unit7) - JDBC. H2. Todo list менеджер
