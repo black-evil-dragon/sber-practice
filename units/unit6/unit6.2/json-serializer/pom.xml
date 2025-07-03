@@ -5,17 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>ru.sbertech.practice</groupId>
-        <artifactId>units</artifactId>
+        <artifactId>unit6</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>unit6</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>unit6.1</module>
-        <module>unit6.2</module>
-        <module>unit6.2/json-serializer</module>
-    </modules>
+    <artifactId>json-serializer</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
