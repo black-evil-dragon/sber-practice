@@ -4,13 +4,33 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Map;
 
+
+
+/// # JsonSerializer
+///
+/// ## Описание
+/// Решает задачу сериализации объектов в JSON-строку
+///
+/// ## Методы
+/// - `serialize(Object object)` - сериализует `Object` в JSON-строку
+/// ...
 public class JsonSerializer {
 
-    public String serialize(Object object) {
+    /// ## Сериализация объекта в JSON-строку
+    /// ### Что делает:
+    /// - В зависимости от типа объекта:
+    /// - `String` - сериализует как `String`
+    /// - `Integer`, `Long`, `Double`, `Float`, `Boolean`, `Character`, `Byte`, `Short` - сериализует как `Number`
+    /// - `Collection` - сериализует как массив
+    /// - `Map` - сериализует как объект
+    ///
+    /// @param object исходный объект
+    /// @return `String` - JSON-строка
+    public String serialize(Object object) throws JsonSerializationException{
         try {
             return serializeByObjectApplicability(object);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new JsonSerializationException(e.getMessage());
         }
     }
 
@@ -37,6 +57,9 @@ public class JsonSerializer {
 
         } else if (Collection.class.isAssignableFrom(object.getClass())) {
             return serializeCollection((Collection<?>) object);
+
+        } else if (Map.class.isAssignableFrom(object.getClass())) {
+            return serializeMap((Map<?, ?>) object);
 
         } else {
             return serializeClass(object);
@@ -124,7 +147,7 @@ public class JsonSerializer {
     ///
     /// @param map исходный Map
     /// @return `String` - JSON-строка (в формате объекта)
-    private String serialMap(Map<?, ?> map) throws IllegalAccessException {
+    private String serializeMap(Map<?, ?> map) throws IllegalAccessException {
         StringBuilder serialized = new StringBuilder("{");
         boolean firstEntry = true;
 
