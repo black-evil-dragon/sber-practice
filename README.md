@@ -8,5 +8,6 @@
 - [Модуль 3](units/unit3) - Классы, ООП. Paint
 - [Модуль 4](units/unit4) - Классы, ООП. Терминал Shell
 - [Модуль 5](units/unit5) - List, Generics
-- [Модуль 6](units/unit6) - Терминал Shell 2. Рефлексия
+- [Модуль 6.1](units/unit6/unit6.1) - Терминал Shell 2. Рефлексия
+- [Модуль 6.2](units/unit6/unit6.2) - Json-сериализатор. Рефлексия
 - [Модуль 7](units/unit7) - 
